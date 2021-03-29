@@ -1,35 +1,76 @@
-<mat-expansion-panel hideToggle>
+<p style="margin: -35px -30px 36px;">
+  <mat-toolbar color="primary" style="position:fixed; z-index: 9">
+    <mat-toolbar-row>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <span>Second Line</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+
+<div style="padding: 70px;"></div>
+
+<!-- Expansion Panels -->
+
+<mat-expansion-panel *ngIf="dash" hideToggle>
   <mat-expansion-panel-header>
     <mat-panel-title>
       Morning
     </mat-panel-title>
     <mat-panel-description>
-      --p--
+       
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <p>This is the primary content of the panel.</p>
+  <span *ngFor="let item of dash.Morning">  
+    <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
+  </span>
 </mat-expansion-panel>
 
-<mat-expansion-panel hideToggle>
+
+<mat-expansion-panel *ngIf="dash" hideToggle>
   <mat-expansion-panel-header>
     <mat-panel-title>
       Afternoon
     </mat-panel-title>
     <mat-panel-description>
-      --p--
+       
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <p>This is the primary content of the panel.</p>
+  <span *ngFor="let item of dash.Afternoon">    
+    <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
+  </span>
 </mat-expansion-panel>
 
-<mat-expansion-panel hideToggle>
+
+<mat-expansion-panel *ngIf="dash" hideToggle>
   <mat-expansion-panel-header>
     <mat-panel-title>
       Evening
     </mat-panel-title>
     <mat-panel-description>
-      --p--
+       
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <p>This is the primary content of the panel.</p>
+  <span *ngFor="let item of dash.Evening">  
+    <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
+  </span>
 </mat-expansion-panel>
+
+
+
+
+
+

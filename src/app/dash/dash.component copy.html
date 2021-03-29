@@ -1,0 +1,52 @@
+<mat-expansion-panel *ngIf="dash" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Morning
+    </mat-panel-title>
+    <mat-panel-description>
+      --p--
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <span *ngFor="let item of dash.Morning">  
+    <p *ngIf="item.status==0"><mat-checkbox class="chk-afternoon" (change)="markdone(item.id)" [checked]="item.status">{{item.title}}</mat-checkbox></p>
+    <mat-card *ngIf="item.status==1">{{item.title}} <mat-progress-bar mode="determinate" value="40"></mat-progress-bar></mat-card>
+  </span>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel *ngIf="dash" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Afternoon
+    </mat-panel-title>
+    <mat-panel-description>
+      --p--
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <span *ngFor="let item of dash.Afternoon">    
+      <p *ngIf="item.status==0"><mat-checkbox class="chk-afternoon" (change)="markdone(item.id)" [checked]="item.status">{{item.title}}</mat-checkbox></p>
+      <mat-card *ngIf="item.status==1">{{item.title}}<mat-progress-bar mode="determinate" value="40"></mat-progress-bar></mat-card>
+  </span>
+</mat-expansion-panel>
+
+
+<mat-expansion-panel *ngIf="dash" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Evening
+    </mat-panel-title>
+    <mat-panel-description>
+      --p--
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <span *ngFor="let item of dash.Evening">  
+    <p *ngIf="item.status==0"><mat-checkbox class="chk-afternoon" (change)="markdone(item.id)" [checked]="item.status">{{item.title}}</mat-checkbox></p>
+    <mat-card *ngIf="item.status==1">{{item.title}}<mat-progress-bar mode="determinate" value="40"></mat-progress-bar></mat-card>
+  </span>
+</mat-expansion-panel>
+
+
+
+<button (click)="mdsave()"> Save </button>
+
+
