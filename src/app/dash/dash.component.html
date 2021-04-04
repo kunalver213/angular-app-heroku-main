@@ -21,53 +21,111 @@
   </mat-toolbar>
 </p>
 
-<div style="padding: 70px;"></div>
+<div style="padding: 60px;"></div>
 
-<!-- Expansion Panels -->
+<mat-tab-group>
+  <mat-tab label="Dash">  
+    <div style="padding: 10px;"></div>
+    <!-- Expansion Panels -->
+    <span id="expnPanl">
+    <mat-expansion-panel *ngIf="dash" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Morning
+        </mat-panel-title>
+        <mat-panel-description>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <span *ngFor="let item of dash.Morning">  
+        <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}{{item.week.sun}}</span></mat-card>
+      </span>
+    </mat-expansion-panel>
+    
+    
+    <mat-expansion-panel *ngIf="dash" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Afternoon
+        </mat-panel-title>
+        <mat-panel-description>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <span *ngFor="let item of dash.Afternoon">    
+        <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
+      </span>
+    </mat-expansion-panel>
+    
+    
+    <mat-expansion-panel *ngIf="dash" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Evening
+        </mat-panel-title>
+        <mat-panel-description>
+          
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <span *ngFor="let item of dash.Evening">  
+        <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
+      </span>
+    </mat-expansion-panel>
+    </span>
 
-<mat-expansion-panel *ngIf="dash" hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Morning
-    </mat-panel-title>
-    <mat-panel-description>
-       
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <span *ngFor="let item of dash.Morning">  
-    <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
-  </span>
-</mat-expansion-panel>
+  </mat-tab>
+  <mat-tab label="All">
+    <span id="activityTable">
+     
+      <table id="customers">
+        <tr>
+          <th>Title</th>
+          <th>Sat</th>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+        </tr>
+        <tr *ngFor="let item of allDash.Morning">  
+          <td>{{item.title}}</td>
+          <td [ngClass]="{'activetd': item.week.sat !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.sun !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.mon !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.tue !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.wed !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.thu !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.fri !== ''}"></td>
+        </tr>
+        <tr *ngFor="let item of allDash.Afternoon">  
+          <td>{{item.title}}</td>
+          <td [ngClass]="{'activetd': item.week.sat !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.sun !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.mon !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.tue !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.wed !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.thu !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.fri !== ''}"></td>
+        </tr>
+        <tr *ngFor="let item of allDash.Evening">  
+          <td>{{item.title}}</td>
+          <td [ngClass]="{'activetd': item.week.sat !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.sun !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.mon !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.tue !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.wed !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.thu !== ''}"></td>
+          <td [ngClass]="{'activetd': item.week.fri !== ''}"></td>
+        </tr>
+      </table>
+      
+    </span>
+  </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>
 
 
-<mat-expansion-panel *ngIf="dash" hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Afternoon
-    </mat-panel-title>
-    <mat-panel-description>
-       
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <span *ngFor="let item of dash.Afternoon">    
-    <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
-  </span>
-</mat-expansion-panel>
-
-
-<mat-expansion-panel *ngIf="dash" hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Evening
-    </mat-panel-title>
-    <mat-panel-description>
-       
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <span *ngFor="let item of dash.Evening">  
-    <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
-  </span>
-</mat-expansion-panel>
 
 
 

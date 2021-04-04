@@ -11,6 +11,7 @@
 }
 
 
+
 .fa-check{
   color: #595959;
 }
@@ -40,4 +41,32 @@
 .mat-card{
   background: #424242;
   color: #e6e6e6;
+}
+ 
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr {background-color: #b9cbd6;}
+
+#customers tr:hover {background-color: rgb(150, 165, 167);}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #f2f2f2;
+  color: rgb(19, 3, 3);
+}
+
+.activetd{
+  background: #007cff;
 }

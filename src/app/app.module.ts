@@ -21,6 +21,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { DatePipe } from '@angular/common'
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -46,7 +48,9 @@ import { DatePipe } from '@angular/common'
     MatDividerModule,
     MatSlideToggleModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [ 
     HabserapisService,
