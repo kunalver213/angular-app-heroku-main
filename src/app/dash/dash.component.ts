@@ -33,6 +33,7 @@ export class DashComponent implements OnInit {
   dash : any;
   allDash : any;
   markdon : string = "";
+  progValue = 100;
   
   constructor(private http : HttpClient, public dialog: MatDialog) {   }
 
@@ -49,6 +50,7 @@ export class DashComponent implements OnInit {
     this.http.get("https://habbit-thymeleaf.herokuapp.com/hab/dash?option=0").subscribe((response) => {
       this.dash = response;
       console.log(response);
+      this.calProgress(response);
     });
   }
 
@@ -57,6 +59,15 @@ export class DashComponent implements OnInit {
       this.allDash = response;
       console.log(response);
     });
+  }
+
+  calProgress(res){
+    var t = 0;
+    var d = 0;
+    for (let resp of res.Morning) { t += 1; if (resp.status === '1') { d += 1; } }
+    for (let resp of res.Afternoon) { t += 1; if (resp.status === '1') { d += 1; } }
+    for (let resp of res.Evening) { t += 1; if (resp.status === '1') { d += 1; } }
+    this.progValue = Math.round((d/t)*100)
   }
 
   ngOnInit(): void {

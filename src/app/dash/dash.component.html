@@ -21,11 +21,15 @@
   </mat-toolbar>
 </p>
 
-<div style="padding: 60px;"></div>
+<div style="padding: 70px;"></div>
 
 <mat-tab-group>
   <mat-tab label="Dash">  
     <div style="padding: 10px;"></div>
+
+    
+
+    <mat-progress-bar mode="determinate" [value]="progValue"></mat-progress-bar>
     <!-- Expansion Panels -->
     <span id="expnPanl">
     <mat-expansion-panel *ngIf="dash" hideToggle>
@@ -38,7 +42,7 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <span *ngFor="let item of dash.Morning">  
-        <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}{{item.week.sun}}</span></mat-card>
+        <mat-card (click)="openDialog(item.id, item.status)"><i class="fa fa-check" [ngClass]="{'tikchk': item.status === '1'}"></i> <span class="itemtitle">{{item.title}}</span></mat-card>
       </span>
     </mat-expansion-panel>
     
@@ -77,7 +81,7 @@
   <mat-tab label="All">
     <span id="activityTable">
      
-      <table id="customers">
+      <table id="customers" *ngIf="allDash">
         <tr>
           <th>Title</th>
           <th>Sat</th>
